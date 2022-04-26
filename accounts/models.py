@@ -30,7 +30,7 @@ class Accounts(models.Model):
 class Department(models.Model):
     program_type=models.CharField(max_length=10, choices=PROGRAM_TYPE)
     dept_name = models.CharField(max_length=30, choices=DEPARTMENTS)
-    hod= models.OneToOneField(Accounts, on_delete=models.cascade, primary_key=True)
+    hod= models.OneToOneField(Accounts, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.dept_name+' ('+self.program_type+')'
