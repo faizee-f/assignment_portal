@@ -8,30 +8,67 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Accounts',
+            name="Accounts",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=100)),
-                ('last_name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=50)),
-                ('phone', models.CharField(max_length=20)),
-                ('is_staff', models.BooleanField(default=False)),
-                ('is_active', models.BooleanField(default=True)),
-                ('is_hod', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=100)),
+                ("last_name", models.CharField(max_length=100)),
+                ("email", models.EmailField(max_length=50)),
+                ("phone", models.CharField(max_length=20)),
+                ("is_staff", models.BooleanField(default=False)),
+                ("is_active", models.BooleanField(default=True)),
+                ("is_hod", models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Department',
+            name="Department",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('program_type', models.CharField(choices=[('UG', 'UG'), ('PG', 'PG')], max_length=10)),
-                ('dept_name', models.CharField(choices=[('Computer Science', 'Computer Science'), ('Mathematics', 'Mathematics'), ('Chemistry', 'Chemistry'), ('Physics', 'Physics')], max_length=30)),
-                ('hod', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='accounts.accounts')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "program_type",
+                    models.CharField(
+                        choices=[("UG", "UG"), ("PG", "PG")], max_length=10
+                    ),
+                ),
+                (
+                    "dept_name",
+                    models.CharField(
+                        choices=[
+                            ("Computer Science", "Computer Science"),
+                            ("Mathematics", "Mathematics"),
+                            ("Chemistry", "Chemistry"),
+                            ("Physics", "Physics"),
+                        ],
+                        max_length=30,
+                    ),
+                ),
+                (
+                    "hod",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.accounts",
+                    ),
+                ),
             ],
         ),
     ]
