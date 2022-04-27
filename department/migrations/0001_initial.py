@@ -9,17 +9,50 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('accounts', '0002_user_remove_department_hod_delete_accounts_and_more'),
+        (
+            "accounts",
+            "0002_user_remove_department_hod_delete_accounts_and_more",
+        ),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Department',
+            name="Department",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('program_type', models.CharField(choices=[('UG', 'UG'), ('PG', 'PG')], max_length=10)),
-                ('dept_name', models.CharField(choices=[('Computer Science', 'Computer Science'), ('Mathematics', 'Mathematics'), ('Chemistry', 'Chemistry'), ('Physics', 'Physics')], max_length=30)),
-                ('hod', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='accounts.user')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "program_type",
+                    models.CharField(
+                        choices=[("UG", "UG"), ("PG", "PG")], max_length=10
+                    ),
+                ),
+                (
+                    "dept_name",
+                    models.CharField(
+                        choices=[
+                            ("Computer Science", "Computer Science"),
+                            ("Mathematics", "Mathematics"),
+                            ("Chemistry", "Chemistry"),
+                            ("Physics", "Physics"),
+                        ],
+                        max_length=30,
+                    ),
+                ),
+                (
+                    "hod",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.user",
+                    ),
+                ),
             ],
         ),
     ]
